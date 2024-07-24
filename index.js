@@ -344,6 +344,45 @@ const input = {
             },
         ],
     },
+    
+    presentationDefinitionTest: {
+        "id": "vp_combined_email_user_profile_combined",
+        "submission_requirements": [
+          {
+            "name": "Personal Information",
+            "purpose": "We need your personal information to fill the application",
+            "rule": "pick",
+            "min": 1,
+            "from": "A"
+          }
+        ],
+      
+        "input_descriptors": [
+          {
+            "id": "email_vc",
+            "name": "Email VC",
+            "purpose": "Check if VC data contains necessary fields",
+            "group": ["A"],
+            "constraints": {
+              "fields": [
+                {
+                  "path": [
+                    "$.type"
+                  ],
+                  "purpose": "Check if VC type is correct",
+                  "filter": {
+                    "type": "array",
+                    "contains": {
+                      "type": "string",
+                      "pattern": "PersonalProfile"
+                    }
+                  }
+                }
+              ]
+            }
+          }   
+        ]
+      },
     VCsList1: [
         {
             "@context": [
@@ -369,6 +408,41 @@ const input = {
                 }
             ],
             "id": "claimId:b0b07938-9b53-4afc-a97c-3866a1445fa0",
+            "holder": {
+                "id": "did:elem:eid1tez3df_nms8tpacwgynqq-bngaemytch0s5jqsqppg"
+            },
+            "proof": {
+                "type": "EcdsaSecp256k1Signature2019",
+                "created": "2023-07-03T16:31:33Z",
+                "verificationMethod": "did:elem:EiBb5gyC1mu3t31oYwMsYWg1U2HyNtaVQ0NKn5UkAzB8BQ#primary",
+                "proofPurpose": "assertionMethod",
+                "jws": "eyJhbGciOiJFUzI1NksiLCJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdfQ..j23ByaFB6boS-jWcfcpHM8O5FAJPMo4H55WD40IYnYtdAqcyWwE0cvgBhienSc9dqtZ9PYTHMJt-pUu2WglfLQ"
+            }
+        },
+        {
+            "@context": [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://schema.affinidi.com/PersonalProfileV1-0.jsonld"
+            ],
+            "type": [
+                "VerifiableCredential",
+                "PersonalProfile"
+            ],
+            "issuer": "did:elem:EiBb5gyC1mu3t31oYwMsYWg1U2HyNtaVQ0NKn5UkAzB8BQ;elem:initial-state=eyJwcm90ZWN0ZWQiOiJleUp2Y0dWeVlYUnBiMjRpT2lKamNtVmhkR1VpTENKcmFXUWlPaUlqY0hKcGJXRnllU0lzSW1Gc1p5STZJa1ZUTWpVMlN5SjkiLCJwYXlsb2FkIjoiZXlKQVkyOXVkR1Y0ZENJNkltaDBkSEJ6T2k4dmR6TnBaQzV2Y21jdmMyVmpkWEpwZEhrdmRqSWlMQ0p3ZFdKc2FXTkxaWGtpT2x0N0ltbGtJam9pSTNCeWFXMWhjbmtpTENKMWMyRm5aU0k2SW5OcFoyNXBibWNpTENKMGVYQmxJam9pVTJWamNESTFObXN4Vm1WeWFXWnBZMkYwYVc5dVMyVjVNakF4T0NJc0luQjFZbXhwWTB0bGVVaGxlQ0k2SWpBeU5UQmtZbVZpWmpsaVpEYzRaRFJtWldFNU5tSmlaVGxsWVRneE9EVXlPVEEzWmpJek1XWTJNVEExWlRCaE5XTTBNRFUwWXpoaVpESTBabVZqTWpJMlppSjlMSHNpYVdRaU9pSWpjbVZqYjNabGNua2lMQ0oxYzJGblpTSTZJbkpsWTI5MlpYSjVJaXdpZEhsd1pTSTZJbE5sWTNBeU5UWnJNVlpsY21sbWFXTmhkR2x2Ymt0bGVUSXdNVGdpTENKd2RXSnNhV05MWlhsSVpYZ2lPaUl3TTJZNE1XSXhNamRqT0RSaE5tTm1aRFF5WXpjek5XTmhaalEyWWpJMFkyUXhNalJoTVRFMllqVmhOR1JoWVdZNFlUZzRZVGRpTkdVd1lUbGhNalZpWlRNaWZWMHNJbUYxZEdobGJuUnBZMkYwYVc5dUlqcGJJaU53Y21sdFlYSjVJbDBzSW1GemMyVnlkR2x2YmsxbGRHaHZaQ0k2V3lJamNISnBiV0Z5ZVNKZGZRIiwic2lnbmF0dXJlIjoiYnhvMHJyNDFMeFRCS2JfOWQ1UG4xeDBNYl8wc3VjRXRvQzFkejEyODFNNVprOEoxZDhxVTJDTlBlZmxxME42YlJ1YUNib19xa0E4V1dtd1pPcXFaOWcifQ",
+            "issuanceDate": "2023-07-03T05:25:59.618184",
+            "expirationDate": "2026-07-03T05:25:59.618175",
+            "credentialSchema": {
+                "id": "https://schema.affinidi.com/PersonalProfileV1-0.json",
+                "type": "PersonalProfile"
+            },
+            "credentialSubject": [
+                {
+                    "firstName": "Sanjay Kumar",
+                    "email": "kamarthiparamesh@gmail.com",
+                    "picture": "https://avatars.githubusercontent.com/u/46393683?v=4"
+                }
+            ],
+            "id": "claimId:b0b07938-gjkgdksj-4afc-a97c-3866a1445fa0",
             "holder": {
                 "id": "did:elem:eid1tez3df_nms8tpacwgynqq-bngaemytch0s5jqsqppg"
             },
@@ -566,8 +640,8 @@ const input = {
 
 const pex = new PEX()
 const match = pex.selectFrom(
-    input.presentationDefinition,
-    input.VCsList,
+    input.presentationDefinitionTest,
+    input.VCsList1,
 )
 
 
