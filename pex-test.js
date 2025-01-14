@@ -1,5 +1,5 @@
 
-const { PEX } = require('@sphereon/pex')
+import { PEX } from '@sphereon/pex'
 
 const input = {
   presentationDefinition: {
